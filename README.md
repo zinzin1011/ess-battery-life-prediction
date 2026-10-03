@@ -23,6 +23,7 @@ ESS(에너지저장시스템) 배터리의 운전 초기 100 사이클 데이터
 │   ├── evaluate.py             # MAPE·RMSE·MAE, 구간별 MAPE
 │   ├── train.py                # 학습·검증·평가 파이프라인
 │   ├── make_report.py          # 성능 표·그림 생성
+│   ├── make_eda_fig1.py        # EDA 수명 분포 그림(분석 대상 119셀) 생성
 │   └── calibration.py          # [추가 분석] 신규 배치 소수 셀 보정
 ├── results/
 │   └── model_performance.csv   # 후보 모델별 성능
@@ -40,6 +41,7 @@ pip install -r requirements.txt
 
 python -m src.train --data-dir data/raw    # 학습·평가 (data/README.md 참고해 .mat 배치)
 python -m src.make_report                  # 성능 표·그림
+python src/make_eda_fig1.py                # EDA 그림 1 (train 실행 후)
 python -m src.calibration                  # (선택) 보정 시나리오
 ```
 재현성: `RANDOM_SEED = 42`, 개발 환경 Python 3.10 / numpy 2.2 / pandas 2.3 / scikit-learn 1.7 / lightgbm 4.7 / h5py 3.16
